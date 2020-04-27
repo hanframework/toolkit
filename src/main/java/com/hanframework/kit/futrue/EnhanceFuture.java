@@ -92,6 +92,7 @@ public interface EnhanceFuture<V> extends Future<V> {
      * 添加error监听器
      *
      * @param error error消费处理
+     * @return EnhanceFuture
      */
     EnhanceFuture<V> addErrorListener(Consumer<Throwable> error);
 

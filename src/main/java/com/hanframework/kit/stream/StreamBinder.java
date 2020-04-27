@@ -1,4 +1,5 @@
 package com.hanframework.kit.stream;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -35,11 +36,14 @@ public class StreamBinder {
      * one to one
      * 拆解,将数据拆解成一一对应的关系
      *
-     * @param dataSourceStream 数据流
-     * @param keyApply         key生成器
-     * @param <K>              key
-     * @param <T>              数据源
+     * @param dataSourceStream  数据流
+     * @param keyApply          key生成器
+     * @param exceptionSupplier 异常生成
+     * @param <K>               key
+     * @param <T>               数据源
+     * @param <X>               异常泛型
      * @return Map
+     * @throws X Throwable
      */
     public static <K, T, X extends Throwable> Map<K, T> dismantling(Stream<T> dataSourceStream,
                                                                     Function<? super T, ? extends K> keyApply,
@@ -59,8 +63,8 @@ public class StreamBinder {
      * @param <T>              数据源
      * @return Map
      */
-    public static <K, V, T> Map<K, V>  dismantlingFirst(Stream<T> dataSourceStream, Function<? super T, ? extends K> keyApply,
-                                                                   Function<? super T, ? extends V> valueApply) {
+    public static <K, V, T> Map<K, V> dismantlingFirst(Stream<T> dataSourceStream, Function<? super T, ? extends K> keyApply,
+                                                       Function<? super T, ? extends V> valueApply) {
         Map<? extends K, List<T>> group = group(dataSourceStream, keyApply);
         Map<K, V> result = new HashMap<>(group.size());
         for (Map.Entry<? extends K, List<T>> entry : group.entrySet()) {
@@ -110,13 +114,16 @@ public class StreamBinder {
      * one to one
      * 拆解,将数据拆解成一一对应的关系
      *
-     * @param dataSourceStream 数据流
-     * @param keyApply         key生成器
-     * @param valueApply       value生成器
-     * @param <K>              key
-     * @param <V>              value
-     * @param <T>              数据源
+     * @param dataSourceStream  数据流
+     * @param keyApply          key生成器
+     * @param valueApply        value生成器
+     * @param exceptionSupplier 异常生成
+     * @param <K>               key
+     * @param <V>               value
+     * @param <T>               数据源
+     * @param <X>               异常泛型
      * @return Map
+     * @throws X Throwable
      */
     public static <K, V, T, X extends Throwable> Map<K, V> dismantling(Stream<T> dataSourceStream,
                                                                        Function<? super T, ? extends K> keyApply,

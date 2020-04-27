@@ -5,7 +5,7 @@ package com.hanframework.kit.futrue;
  * 1. 完成
  * 2. 失败
  * 3. 执行中
- * 任务状态从未决 -> 到完成。
+ * 任务状态从未决 - 到完成。
  * 如何知道完成呢?
  * 1. setSuccess 标识成功
  * 2. setFailure 标识失败
