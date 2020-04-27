@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea/*
+/common-toolkit.iml
+.idea/workspace.xml
+pom.xml.versionsBackup
+target/
