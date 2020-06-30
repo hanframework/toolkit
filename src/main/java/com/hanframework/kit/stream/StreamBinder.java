@@ -177,6 +177,7 @@ public class StreamBinder {
      * 分组根据相同条件分组
      *
      * @param dataSourceStream 数据流
+     * @param keyApply key转换器
      * @param <K>              key
      * @param <T>              value
      * @return Map

@@ -27,6 +27,7 @@ public class StreamFilter {
     }
 
     /**
+     * 根据条件过滤并转换生成新的list
      * @param dataStream   数据流
      * @param predicate    过滤条件
      * @param applyMapping 数据类型转换函数
@@ -59,7 +60,7 @@ public class StreamFilter {
     }
 
     /**
-     * 查询唯一数据
+     * 查询唯一数据并制定异常
      *
      * @param dataStream        数据流
      * @param predicate         过滤条件
