@@ -47,19 +47,20 @@ public class HanThreadPoolExecutor {
    * DiscardPolicy（rejectedExecution直接是空方法，什么也不干，如果队列满了，后续的任务都抛弃掉）
    * DiscardOldestPolicy（将等待队列里最旧的任务踢走，让新任务得以执行）
    * CallerRunsPolicy（既不抛弃新任务，也不抛弃旧任务，而是直接在当前线程运行这个任务）。
-   * <p>
-   * <p>
+   * <p> 1
+   * <p> 1
    * 阻塞任务队列介绍
    * 1.ArrayBlockingQueue是一个有边界的阻塞队列，
    * 它的内部实现是一个数组。有边界的意思是它的容量是有限的，
    * 我们必须在其初始化的时候指定它的容量大小，容量大小一旦指定就不可改变。
-   * <p>
-   * <p>
+   * <p> 1
+   * <p> 1
    * 2.DelayQueue延迟队列阻塞的是其内部元素，DelayQueue中的元素必须实现 java.util.concurrent.Delayed接口，
-   * <p>
+   * <p>  1
    * 3.LinkedBlockingQueue阻塞队列大小的配置是可选的，如果我们初始化时指定一个大小，
    * 它就是有边界的，如果不指定，它就是无边界的。说是无边界，其实是采用了默认大小为Integer.MAX_VALUE的容量 。
    * 它的内部实现是一个链表。
+   * @return ThreadPoolExecutor
    */
   public ThreadPoolExecutor getExecutory() {
     return new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime,
